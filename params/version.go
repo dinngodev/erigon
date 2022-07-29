@@ -31,10 +31,10 @@ var (
 
 // see https://calver.org
 const (
-	VersionMajor       = 2022  // Major version component of the current release
-	VersionMinor       = 99    // Minor version component of the current release
-	VersionMicro       = 99    // Patch version component of the current release
-	VersionModifier    = "dev" // Modifier component of the current release
+	VersionMajor       = 0     // Major version component of the current release
+	VersionMinor       = 0     // Minor version component of the current release
+	VersionMicro       = 3     // Patch version component of the current release
+	VersionModifier    = "bor" // Modifier component of the current release
 	VersionKeyCreated  = "ErigonVersionCreated"
 	VersionKeyFinished = "ErigonVersionFinished"
 )
@@ -56,7 +56,7 @@ func isRelease() bool {
 
 // Version holds the textual version string.
 var Version = func() string {
-	return fmt.Sprintf("%d.%02d.%d", VersionMajor, VersionMinor, VersionMicro)
+	return fmt.Sprintf("%d.%d.%d", VersionMajor, VersionMinor, VersionMicro)
 }()
 
 // VersionWithMeta holds the textual version string including the metadata.
