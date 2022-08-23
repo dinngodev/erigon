@@ -35,7 +35,8 @@ docs/readthedocs/build
 # used by the Makefile
 /build/_workspace/
 /build/cache/
-/build/bin/
+/build/bin/**
+!/build/bin/erigon
 /geth*.zip
 
 # travis
@@ -62,7 +63,6 @@ right_*.txt
 root_*.txt
 
 __pycache__
-/build
 *.tmp
 
 /ethdb/*.fail

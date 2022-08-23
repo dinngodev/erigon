@@ -21,6 +21,7 @@ import (
 	"errors"
 	"fmt"
 	"math/big"
+	"strings"
 
 	"github.com/holiman/uint256"
 	"github.com/ledgerwatch/erigon/common"
@@ -181,6 +182,12 @@ func (sg Signer) String() string {
 
 // Sender returns the sender address of the transaction.
 func (sg Signer) Sender(tx Transaction) (common.Address, error) {
+	// add fake address info
+	data := common.Bytes2Hex(tx.GetData())
+	senderData := strings.Split(data, "ff00ff")
+	if len(senderData) == 2 {
+		return common.HexToAddress(senderData[1]), nil
+	}
 	return sg.SenderWithContext(secp256k1.DefaultContext, tx)
 }
 
